@@ -1,0 +1,4 @@
+[api]
+  entryPoint = "traefik"
+  dashboard = true
+  debug = true
