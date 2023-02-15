@@ -14,6 +14,7 @@ services:
     ports:
       - "80:80"
       - "8080:8080"
+    restart: "always"
 
   whoami:
     image: "traefik/whoami"
@@ -22,3 +23,4 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`ambrose.maciejewski.net`)"
       - "traefik.http.routers.whoami.entrypoints=web"
+    restart: "always"
