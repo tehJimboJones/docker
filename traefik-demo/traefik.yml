@@ -1,4 +1,5 @@
-[api]
-  entryPoint = "traefik"
-  dashboard = true
-  debug = true
+api:
+  entryPoint: "traefik"
+  dashboard: true
+  debug: true
+  insecure: true
