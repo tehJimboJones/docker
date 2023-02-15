@@ -11,6 +11,7 @@ services:
       - "--entrypoints.web.address=:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - $PWD/traefik.yml:/traefik.yml
     ports:
       - "80:80"
       - "8080:8080"
@@ -21,6 +22,6 @@ services:
     container_name: "simple-service"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`ambrose.maciejewski.net`)"
+      - "traefik.http.routers.whoami.rule=Host(`test.ambrose.maciejewski.net`)"
       - "traefik.http.routers.whoami.entrypoints=web"
     restart: "always"
