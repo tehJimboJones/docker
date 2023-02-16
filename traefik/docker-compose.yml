@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     networks:
       web:
-    label:
+    labels:
       - traefik
 
 networks:
