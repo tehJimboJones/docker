@@ -1,7 +1,7 @@
 # Stop all containers for the current service and remove containers
 
-list= $(docker ps -aq --filter label=$(basename $(pwd)) | xargs)
-if [-z $list]
+list=$(echo $(docker ps -aq --filter label=$(basename $(pwd))) | xargs)
+if [ -z $list ]
 then
     echo "No containers to stop and remove!"
 
