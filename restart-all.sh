@@ -1,5 +1,5 @@
 # Stop all running containers by listing all with "all" and 
-docker rm -f $(docker ps -a -q)
+./stop-all.sh
 
 # List of services to start in order
 declare -a arr=()
