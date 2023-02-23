@@ -16,8 +16,8 @@ services:
       - coredns
     networks:
       web:
-      coredns:
-        ipv4_address: 192.168.2.100
+      # coredns:
+      #   ipv4_address: 192.168.2.100
     
 networks:
   web: # this is our intranet
