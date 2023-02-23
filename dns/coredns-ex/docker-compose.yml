@@ -24,6 +24,6 @@ networks:
     external: true
   coredns: # this is for(?) the ad block container - don't actually have this yet
     name: coredns
-    ipam:
-      config:
+    ipam:      
+      - config:
         subnet: 192.168.2.0/24
