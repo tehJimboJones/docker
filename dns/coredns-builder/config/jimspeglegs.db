@@ -1,0 +1,10 @@
+
+jimspeglegs.com.        IN    SOA    dns.jimspeglegs.com    admin.jimspeglegs.com    20210221    7200    3600    1209600    3600
+
+; this is a test
+; does blog go to john o liver joke site
+blog.jimspeglegs.com.   IN  CNAME   www.definitelyrealquotes.com.
+
+; point all internal domain traffik to docker host
+; in this case it's the same box
+*.jimspeglegs.com.    IN    A    127.0.0.1
