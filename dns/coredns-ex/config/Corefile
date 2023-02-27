@@ -14,3 +14,9 @@ jimspeglegs.com:1053 {
     log
     errors
 }
+
+cpi.jimspeglegs.com:1053 {
+    file /etc/coredns/cpi.jimspeglegs.db
+    log
+    errors
+}
