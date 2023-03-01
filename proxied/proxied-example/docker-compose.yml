@@ -1,0 +1,53 @@
+version: '3.3'
+services:
+  blog:
+    image: wordpress:latest
+    container_name: blog
+    environment:
+      WORDPRESS_DB_PASSWORD:
+    labels:
+      - blog
+      - "traefik.enable=true"
+      - "traefik.http.routers.blog.rule=Host(`jomspeglegs.com`)"
+      - "traefik.http.routers.blog.entrypoints=websecure"
+      - "traefik.http.routers.blog.tls.certresolver=letsencrypt"
+      - "traefik.http.services.blog.loadbalancer.server.port=8080"
+      - "traefik.frontend.rule=Host:blog.cpi.jimspeglegs.com"
+      - "traefik.http.routers.template.middlewares=middlewares-rate-limit@file,middlewares-ipwhilelist@file" 
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    networks:
+      web:
+      internal:
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASWORD:
+    networks:
+      - internal
+    labels:
+      - traefik.enable=false
+  adminer:
+    image: adminer:latest
+    labels:
+      - traefik.http.routers.adminer.rule=Host(`db-admin.cpi.jimspeglegs.com`)
+      - traefik.http.routers.adminer.tls=true
+      - traefik.http.routers.adminer.tls.certresolver=lets-encrypt
+      - traefik.port=8080
+    networks:
+      - internal
+      - web
+    depends_on:
+      - mysql
+
+
+
+
+networks:
+  web:
+    external: true
+  internal: 
+    external: false
