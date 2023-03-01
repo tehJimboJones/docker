@@ -14,8 +14,8 @@ services:
       - "traefik.http.services.blog.loadbalancer.server.port=8080"
       - "traefik.frontend.rule=Host:blog.cpi.jimspeglegs.com"
       - "traefik.http.routers.template.middlewares=middlewares-rate-limit@file,middlewares-ipwhilelist@file" 
-    ports:
-      - "80:80"
+#    ports:
+#      - "8080:80"
     restart: unless-stopped
     networks:
       web:
