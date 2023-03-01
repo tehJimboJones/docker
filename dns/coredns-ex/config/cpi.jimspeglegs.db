@@ -1,5 +1,5 @@
 $ORIGIN cpi.jimspeglegs.com.
-@       3600 IN SOA sns.dns.icann.org. noc.dns.icann.org. (
+@       3600 IN SOA cpi.jimspeglegs.com. devnull.jimspeglogs.com. (
         20210221    ; serial
         7200        ; refresh
         3600        ; retry
@@ -11,4 +11,4 @@ $ORIGIN cpi.jimspeglegs.com.
         3600 IN NS b.iana-servers.net.
 
 *       IN A    127.0.0.1
-        IN AAAA ::1
+        IN AAAA ::17
