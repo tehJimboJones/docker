@@ -12,12 +12,12 @@ entryPoints:
 api:
   dashboard: true
 
-certificatesResolvers:
-  letsencrypt:
-    acme:
-      email: james.m.maciejewski@gmail.com
-      storage: acme.json
-      tlsChallenge: {}
+# certificatesResolvers:
+#   letsencrypt:
+#     acme:
+#       email: james.m.maciejewski@gmail.com
+#       storage: acme.json
+#       tlsChallenge: {}
 
 providers:
   docker:

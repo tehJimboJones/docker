@@ -12,5 +12,5 @@ http:
       middlewares:
         - simpleAuth
       service: api@internal
-      tls:
-        certResolver: letsencrypt
+      # tls:
+      #   certResolver: letsencrypt
