@@ -6,7 +6,7 @@ http:
         -  'admin:$apr1$UVo6RtsW$A079TecA7I7EL6nFskiQD1'
   routers:
     api:
-      rule: Host(`ambrose.maciejewski.net`)
+      rule: Host(`monitor.cpi.maciejewski.net`)
       entryPoints:
         - websecure
       middlewares:
