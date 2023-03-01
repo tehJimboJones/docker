@@ -1,17 +1,17 @@
 http:
   middlewares:
-    simpleAuth:
+    auth:
       basicAuth:
         users:
         -  'admin:$apr1$UVo6RtsW$A079TecA7I7EL6nFskiQD1'
   routers:
     api:
-      rule: Host(`cpi.maciejewski.net`)
+      rule: Host(`cpi.jimspeglegs.com`)
       entryPoints:
-        - web
-#- websecure
+#        - web
+        - websecure
       middlewares:
-        - simpleAuth
+        - auth
       service: api@internal
-      # tls:
-      #   certResolver: letsencrypt
+      tls:
+        certResolver: letsencrypt
