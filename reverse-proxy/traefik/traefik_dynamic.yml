@@ -13,4 +13,4 @@ http:
         - simpleAuth
       service: api@internal
       tls:
-        certResolver: lets-encrypt
+        certResolver: letsencrypt
