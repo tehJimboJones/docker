@@ -1,4 +1,4 @@
-.:1053 {
+.:53 {
     forward . 8.8.8.8
     log
     errors
@@ -9,13 +9,13 @@
     reload
 }
 
-jimspeglegs.com:1053 {
+jimspeglegs.com:53 {
     file /etc/coredns/jimspeglegs.db
     log
     errors
 }
 
-cpi.jimspeglegs.com:1053 {
+cpi.jimspeglegs.com:53 {
     file /etc/coredns/cpi.jimspeglegs.db
     log
     errors
