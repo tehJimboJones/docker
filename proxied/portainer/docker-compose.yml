@@ -3,7 +3,7 @@ services:
   portainer:
     image: portainer/portainer
     container_name: portainer
-    environment:
+#    environment:
     labels:
       - portainer
       - "traefik.enable=true"
@@ -14,7 +14,7 @@ services:
       - "traefik.frontend.rule=Host:portainer.cpi.jimspeglegs.com"
 #      - "traefik.http.routers.template.middlewares=middlewares-rate-limit@file,middlewares-ipwhilelist@file" 
     volumes:
-      - /var/run/docker/sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "9000:80"
     restart: unless-stopped
