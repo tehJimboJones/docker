@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    environment:
+    labels:
+      - portainer
+      - "traefik.enable=true"
+      - "traefik.http.routers.template.rule=Host(`portainer.cpi.jimspeglegs.com`)"
+      - "traefik.http.routers.template.entrypoints=websecure"
+      - "traefik.http.routers.template.tls.certresolver=letsencrypt"
+      - "traefik.http.services.template.loadbalancer.server.port=9000"
+      - "traefik.frontend.rule=Host:portainer.cpi.jimspeglegs.com"
+#      - "traefik.http.routers.template.middlewares=middlewares-rate-limit@file,middlewares-ipwhilelist@file" 
+    volumes:
+      - /var/run/docker/sock:/var/run/docker.sock
+    ports:
+      - "9000:80"
+    restart: unless-stopped
+    networks:
+      web:
+
+networks:
+  web:
+    external: true
