@@ -5,15 +5,17 @@ services:
     container_name: blog
     environment:
       WORDPRESS_DB_PASSWORD:
+      WORDPRESS_DEBUG: 1
     labels:
       - blog
       - "traefik.enable=true"
-      - "traefik.http.routers.blog.rule=Host(`blog.jimspeglegs.com`)"
+      - "traefik.http.routers.blog.rule=Host(`blog.cpi.jimspeglegs.com`)"
       - "traefik.http.routers.blog.entrypoints=websecure"
       - "traefik.http.routers.blog.tls.certresolver=letsencrypt"
-      - "traefik.http.services.blog.loadbalancer.server.port=8080"
+      - "traaefik.port=80"
+#      - "traefik.http.services.blog.loadbalancer.server.port=8080"
       - "traefik.frontend.rule=Host:blog.cpi.jimspeglegs.com"
-      - "traefik.http.routers.template.middlewares=middlewares-rate-limit@file,middlewares-ipwhilelist@file" 
+#      - "traefik.http.routers.template.middlewares=middlewares-rate-limit@file,middlewares-ipwhilelist@file" 
 #    ports:
 #      - "8080:80"
     restart: unless-stopped
@@ -24,18 +26,20 @@ services:
       - mysql
   mysql:
     image: mysql:latest
+    container_name: mysql
     environment:
-      MYSQL_ROOT_PASWORD:
+      MYSQL_ROOT_PASSWORD:
     networks:
       - internal
     labels:
       - traefik.enable=false
   adminer:
     image: adminer:latest
+    container_name: adminer
     labels:
       - traefik.http.routers.adminer.rule=Host(`db-admin.cpi.jimspeglegs.com`)
       - traefik.http.routers.adminer.tls=true
-      - traefik.http.routers.adminer.tls.certresolver=lets-encrypt
+      - traefik.http.routers.adminer.tls.certresolver=letsencrypt
       - traefik.port=8080
     networks:
       - internal
